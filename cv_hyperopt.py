@@ -1,12 +1,13 @@
 from utilities import get_combined_dataset_testset
 from utilities import calculate_ndcg
 from utilities import export_runfile
-from A2 import predict_model
+import A2
+
 from sklearn.model_selection import GroupShuffleSplit
 from sklearn.model_selection import GroupKFold
 from sklearn.utils import shuffle
 from hyperopt import STATUS_OK, Trials, fmin, hp, tpe
-import xgboost as xgb
+from xgboost.sklearn import XGBRanker
 import pandas as pd
 import numpy as np
 
@@ -27,9 +28,9 @@ def get_x_y_cv(train_index, test_index, X, y, dropped_labels):
 
 
 def perform_cv(model, dropped_labels):
-    X = dataset
-    y = dataset['Label']
-    groupsforcv = dataset['QueryID'];
+    X = combined_dataset
+    y = combined_dataset['Label']
+    groupsforcv = combined_dataset['QueryID']
     group_kfold = GroupKFold(n_splits=5)
     scores=[]
     
@@ -41,7 +42,7 @@ def perform_cv(model, dropped_labels):
         X_train_raw, X_train, y_train, X_test_raw, X_test, y_test, groups, groups_test = get_x_y_cv(train_index, test_index, X, y, dropped_labels)
 
         model.fit(X_train, y_train, group=groups, verbose=False, eval_set=[(X_test, y_test)], eval_group=[groups_test], early_stopping_rounds=100)
-        queryIDs, docIDs, predictions = predict_model(model, X_test_raw, dropped_labels)
+        queryIDs, docIDs, predictions = A2.predict_model(model, X_test_raw, dropped_labels)
         export_runfile(queryIDs, docIDs, predictions, f'f{str(fold)}.csv')
         
         score=calculate_ndcg(f'f{str(fold)}.csv')      
@@ -51,14 +52,15 @@ def perform_cv(model, dropped_labels):
     return sum(scores)/len(scores)
 
 def cv():
-  dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
-  # params ={'gamma': 4.3331098918759485, 'learning_rate': 0.2913689488086962, 'max_depth': 2, 'min_child_weight': 6, 'n_estimators': 376} 
-  params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10
-  model = xgb.sklearn.XGBRanker(**params)
+  # dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label'] #s3782041-1.tsv
+  # params ={'gamma': 4.3331098918759485, 'learning_rate': 0.2913689488086962, 'max_depth': 2, 'min_child_weight': 6, 'n_estimators': 376} #s3782041-1.tsv
+  dropped_labels= ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'cover_stop', 'Label'] #s3782041-2.tsv
+  params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10, #s3782041-2
+  model = XGBRanker(**params)
   average_ndcg = perform_cv(model, dropped_labels)
   print ("AVERAGE SCORE:", average_ndcg)
 
-
+# cv()
 
 
 
@@ -70,11 +72,12 @@ space={"n_estimators": hp.quniform('n_estimators',50,500,1),
         'seed': 27 }
 
 def objective(space):
-    model=xgb.sklearn.XGBRanker(
-                    n_estimators =int(space['n_estimators']), gamma = space['gamma'], max_depth = int(space['max_depth']), 
+    model=XGBRanker(n_estimators =int(space['n_estimators']), gamma = space['gamma'], max_depth = int(space['max_depth']), 
                     min_child_weight=int(space['min_child_weight']), learning_rate = space['learning_rate']) 
     
-    dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
+    dropped_labels= ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'cover_stop', 'Label']
+
+    # dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
     average_ndcg = perform_cv(model, dropped_labels)
     
     print ("SCORE:", average_ndcg)
@@ -92,3 +95,5 @@ def hyperparameter_tuning():
   print("The best hyperparameters are : ","\n")
   print(best_hyperparams)
   return best_hyperparams
+
+# print(hyperparameter_tuning())

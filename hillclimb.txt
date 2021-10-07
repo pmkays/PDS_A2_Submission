@@ -1,0 +1,423 @@
+---------------------------------------------
+MAX SCORE FOR ITERATION 0: 0.5954
+New feature indexes: [29, 4, 26, 30, 32, 37, 7, 10, 48, 8, 5, 6, 9]
+New feature names: Index(['LMIRABSWholeDocument', 'TermsWholeDocument', 'LMIRABSAnchor',
+       'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRIMTitle', 'IDFTitle', 'TFIDFBody',
+       'entropy', 'IDFURL', 'IDFBody', 'IDFAnchor', 'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 1: 0.6034
+New feature indexes: [27, 39, 48, 2, 3, 42, 45, 31, 38, 21, 41, 28, 47, 6, 7, 5, 9, 8, 12, 43]
+New feature names: Index(['LMIRABSTitle', 'LMIRIMWholeDocument', 'entropy', 'TitleTerms',
+       'URLTerms', 'OutlinkNum', 'NumChildPages', 'LMIRDIRAnchor', 'LMIRIMURL',
+       'BM25Anchor', 'InlinkNum', 'LMIRABSURL', 'cover_stop', 'IDFAnchor',
+       'IDFTitle', 'IDFBody', 'IDFWholeDocument', 'IDFURL', 'TFIDFTitle',
+       'NumSlashURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'PageRank', 'LenURL', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 2: 0.605
+New feature indexes: [23, 12, 42, 16, 47, 13, 0, 2, 9, 17, 25, 46, 27, 1, 24, 38, 6, 3, 5, 7, 48, 43, 8]
+New feature names: Index(['BM25URL', 'TFIDFTitle', 'OutlinkNum', 'LengthAnchor', 'cover_stop',
+       'TFIDFURL', 'BodyTerms', 'TitleTerms', 'IDFWholeDocument',
+       'LengthTitle', 'LMIRABSBody', 'frac_stop', 'LMIRABSTitle',
+       'AnchorTerms', 'BM25WholeDocument', 'LMIRIMURL', 'IDFAnchor',
+       'URLTerms', 'IDFBody', 'IDFTitle', 'entropy', 'NumSlashURL', 'IDFURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFWholeDocument', 'LengthBody', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'LMIRABSAnchor', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 3: 0.6076
+New feature indexes: [12, 39, 9, 46, 31, 28, 13, 47, 6, 36, 23, 11, 7, 5, 38, 21, 8]
+New feature names: Index(['TFIDFTitle', 'LMIRIMWholeDocument', 'IDFWholeDocument', 'frac_stop',
+       'LMIRDIRAnchor', 'LMIRABSURL', 'TFIDFURL', 'cover_stop', 'IDFAnchor',
+       'LMIRIMAnchor', 'BM25URL', 'TFIDFAnchor', 'IDFTitle', 'IDFBody',
+       'LMIRIMURL', 'BM25Anchor', 'IDFURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMTitle', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 4: 0.6069
+New feature indexes: [6, 47, 11, 4, 12, 31, 7, 25, 45, 22, 28, 33, 16, 27, 37, 20, 0, 9, 8, 5]
+New feature names: Index(['IDFAnchor', 'cover_stop', 'TFIDFAnchor', 'TermsWholeDocument',
+       'TFIDFTitle', 'LMIRDIRAnchor', 'IDFTitle', 'LMIRABSBody',
+       'NumChildPages', 'BM25Title', 'LMIRABSURL', 'LMIRDIRURL',
+       'LengthAnchor', 'LMIRABSTitle', 'LMIRIMTitle', 'BM25Body', 'BodyTerms',
+       'IDFWholeDocument', 'IDFURL', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25URL', 'BM25WholeDocument', 'LMIRABSAnchor', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label', 'frac_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 5: 0.6034
+New feature indexes: [42, 29, 6, 19, 28, 3, 21, 4, 32, 5, 47, 41, 24, 44, 18, 48, 12, 7, 8, 9, 38]
+New feature names: Index(['OutlinkNum', 'LMIRABSWholeDocument', 'IDFAnchor',
+       'LengthWholeDocument', 'LMIRABSURL', 'URLTerms', 'BM25Anchor',
+       'TermsWholeDocument', 'LMIRDIRTitle', 'IDFBody', 'cover_stop',
+       'InlinkNum', 'BM25WholeDocument', 'LenURL', 'LengthURL', 'entropy',
+       'TFIDFTitle', 'IDFTitle', 'IDFURL', 'IDFWholeDocument', 'LMIRIMURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'BM25Body', 'BM25Title', 'BM25URL', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'PageRank', 'NumSlashURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 6: 0.5964
+New feature indexes: [48, 39, 37, 23, 7, 0, 6, 14, 21, 5, 8, 16, 9]
+New feature names: Index(['entropy', 'LMIRIMWholeDocument', 'LMIRIMTitle', 'BM25URL', 'IDFTitle',
+       'BodyTerms', 'IDFAnchor', 'TFIDFWholeDocument', 'BM25Anchor', 'IDFBody',
+       'IDFURL', 'LengthAnchor', 'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 7: 0.6033
+New feature indexes: [13, 15, 22, 27, 37, 10, 31, 40, 9, 32, 5, 6, 36, 7, 46, 8, 43, 14, 39, 19]
+New feature names: Index(['TFIDFURL', 'LengthBody', 'BM25Title', 'LMIRABSTitle', 'LMIRIMTitle',
+       'TFIDFBody', 'LMIRDIRAnchor', 'PageRank', 'IDFWholeDocument',
+       'LMIRDIRTitle', 'IDFBody', 'IDFAnchor', 'LMIRIMAnchor', 'IDFTitle',
+       'frac_stop', 'IDFURL', 'NumSlashURL', 'TFIDFWholeDocument',
+       'LMIRIMWholeDocument', 'LengthWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFAnchor', 'TFIDFTitle', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Body', 'BM25Anchor', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'InlinkNum', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 8: 0.5969
+New feature indexes: [43, 48, 35, 23, 47, 33, 12, 11, 39, 7, 42, 6, 9, 8, 5, 20]
+New feature names: Index(['NumSlashURL', 'entropy', 'LMIRIMBody', 'BM25URL', 'cover_stop',
+       'LMIRDIRURL', 'TFIDFTitle', 'TFIDFAnchor', 'LMIRIMWholeDocument',
+       'IDFTitle', 'OutlinkNum', 'IDFAnchor', 'IDFWholeDocument', 'IDFURL',
+       'IDFBody', 'BM25Body'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 9: 0.6076
+New feature indexes: [43, 26, 34, 7, 36, 25, 39, 15, 30, 4, 8, 9, 23, 6, 5, 46, 12, 41, 10, 48]
+New feature names: Index(['NumSlashURL', 'LMIRABSAnchor', 'LMIRDIRWholeDocument', 'IDFTitle',
+       'LMIRIMAnchor', 'LMIRABSBody', 'LMIRIMWholeDocument', 'LengthBody',
+       'LMIRDIRBody', 'TermsWholeDocument', 'IDFURL', 'IDFWholeDocument',
+       'BM25URL', 'IDFAnchor', 'IDFBody', 'frac_stop', 'TFIDFTitle',
+       'InlinkNum', 'TFIDFBody', 'entropy'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFAnchor', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRIMBody', 'LMIRIMTitle', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 10: 0.602
+New feature indexes: [37, 23, 43, 46, 20, 3, 7, 6, 38, 21, 5, 33, 48, 8, 42, 9]
+New feature names: Index(['LMIRIMTitle', 'BM25URL', 'NumSlashURL', 'frac_stop', 'BM25Body',
+       'URLTerms', 'IDFTitle', 'IDFAnchor', 'LMIRIMURL', 'BM25Anchor',
+       'IDFBody', 'LMIRDIRURL', 'entropy', 'IDFURL', 'OutlinkNum',
+       'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 11: 0.6019
+New feature indexes: [2, 42, 36, 23, 8, 48, 47, 14, 9, 6, 5, 10, 1, 7]
+New feature names: Index(['TitleTerms', 'OutlinkNum', 'LMIRIMAnchor', 'BM25URL', 'IDFURL',
+       'entropy', 'cover_stop', 'TFIDFWholeDocument', 'IDFWholeDocument',
+       'IDFAnchor', 'IDFBody', 'TFIDFBody', 'AnchorTerms', 'IDFTitle'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 12: 0.6022
+New feature indexes: [47, 45, 7, 40, 35, 28, 20, 8, 36, 14, 21, 9, 37, 29, 5, 6]
+New feature names: Index(['cover_stop', 'NumChildPages', 'IDFTitle', 'PageRank', 'LMIRIMBody',
+       'LMIRABSURL', 'BM25Body', 'IDFURL', 'LMIRIMAnchor',
+       'TFIDFWholeDocument', 'BM25Anchor', 'IDFWholeDocument', 'LMIRIMTitle',
+       'LMIRABSWholeDocument', 'IDFBody', 'IDFAnchor'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMURL', 'LMIRIMWholeDocument', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label', 'frac_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 13: 0.6094
+New feature indexes: [43, 4, 20, 46, 0, 14, 28, 6, 23, 39, 5, 7, 8, 48, 1, 29, 21, 19, 9, 37, 2]
+New feature names: Index(['NumSlashURL', 'TermsWholeDocument', 'BM25Body', 'frac_stop',
+       'BodyTerms', 'TFIDFWholeDocument', 'LMIRABSURL', 'IDFAnchor', 'BM25URL',
+       'LMIRIMWholeDocument', 'IDFBody', 'IDFTitle', 'IDFURL', 'entropy',
+       'AnchorTerms', 'LMIRABSWholeDocument', 'BM25Anchor',
+       'LengthWholeDocument', 'IDFWholeDocument', 'LMIRIMTitle', 'TitleTerms'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 14: 0.6085
+New feature indexes: [14, 18, 46, 31, 39, 21, 2, 37, 6, 19, 8, 9, 48, 47, 5, 20, 35, 28, 7]
+New feature names: Index(['TFIDFWholeDocument', 'LengthURL', 'frac_stop', 'LMIRDIRAnchor',
+       'LMIRIMWholeDocument', 'BM25Anchor', 'TitleTerms', 'LMIRIMTitle',
+       'IDFAnchor', 'LengthWholeDocument', 'IDFURL', 'IDFWholeDocument',
+       'entropy', 'cover_stop', 'IDFBody', 'BM25Body', 'LMIRIMBody',
+       'LMIRABSURL', 'IDFTitle'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMAnchor', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 15: 0.6128
+New feature indexes: [16, 14, 30, 26, 36, 22, 37, 24, 39, 48, 41, 18, 6, 33, 46, 9, 4, 15, 7, 5, 12, 8]
+New feature names: Index(['LengthAnchor', 'TFIDFWholeDocument', 'LMIRDIRBody', 'LMIRABSAnchor',
+       'LMIRIMAnchor', 'BM25Title', 'LMIRIMTitle', 'BM25WholeDocument',
+       'LMIRIMWholeDocument', 'entropy', 'InlinkNum', 'LengthURL', 'IDFAnchor',
+       'LMIRDIRURL', 'frac_stop', 'IDFWholeDocument', 'TermsWholeDocument',
+       'LengthBody', 'IDFTitle', 'IDFBody', 'TFIDFTitle', 'IDFURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 16: 0.6085
+New feature indexes: [3, 33, 25, 20, 38, 21, 39, 34, 7, 6, 22, 9, 8, 47, 0, 14, 10, 45, 18, 5, 41]
+New feature names: Index(['URLTerms', 'LMIRDIRURL', 'LMIRABSBody', 'BM25Body', 'LMIRIMURL',
+       'BM25Anchor', 'LMIRIMWholeDocument', 'LMIRDIRWholeDocument', 'IDFTitle',
+       'IDFAnchor', 'BM25Title', 'IDFWholeDocument', 'IDFURL', 'cover_stop',
+       'BodyTerms', 'TFIDFWholeDocument', 'TFIDFBody', 'NumChildPages',
+       'LengthURL', 'IDFBody', 'InlinkNum'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'AnchorTerms', 'TitleTerms', 'TermsWholeDocument', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25URL', 'BM25WholeDocument', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label', 'frac_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 17: 0.5949
+New feature indexes: [44, 16, 21, 42, 19, 26, 48, 29, 8, 5, 13, 9, 7, 6, 47]
+New feature names: Index(['LenURL', 'LengthAnchor', 'BM25Anchor', 'OutlinkNum',
+       'LengthWholeDocument', 'LMIRABSAnchor', 'entropy',
+       'LMIRABSWholeDocument', 'IDFURL', 'IDFBody', 'TFIDFURL',
+       'IDFWholeDocument', 'IDFTitle', 'IDFAnchor', 'cover_stop'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFWholeDocument', 'LengthBody', 'LengthTitle', 'LengthURL', 'BM25Body', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 18: 0.6009
+New feature indexes: [43, 16, 26, 30, 20, 48, 31, 47, 35, 41, 23, 45, 7, 33, 44, 6, 9, 36, 10, 8, 5]
+New feature names: Index(['NumSlashURL', 'LengthAnchor', 'LMIRABSAnchor', 'LMIRDIRBody',
+       'BM25Body', 'entropy', 'LMIRDIRAnchor', 'cover_stop', 'LMIRIMBody',
+       'InlinkNum', 'BM25URL', 'NumChildPages', 'IDFTitle', 'LMIRDIRURL',
+       'LenURL', 'IDFAnchor', 'IDFWholeDocument', 'LMIRIMAnchor', 'TFIDFBody',
+       'IDFURL', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'OutlinkNum', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 19: 0.5981
+New feature indexes: [37, 25, 23, 48, 14, 12, 6, 18, 8, 38, 9, 7, 5]
+New feature names: Index(['LMIRIMTitle', 'LMIRABSBody', 'BM25URL', 'entropy',
+       'TFIDFWholeDocument', 'TFIDFTitle', 'IDFAnchor', 'LengthURL', 'IDFURL',
+       'LMIRIMURL', 'IDFWholeDocument', 'IDFTitle', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'BM25WholeDocument', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 20: 0.6071
+New feature indexes: [4, 8, 24, 27, 1, 23, 48, 18, 46, 41, 38, 5, 6, 7, 9]
+New feature names: Index(['TermsWholeDocument', 'IDFURL', 'BM25WholeDocument', 'LMIRABSTitle',
+       'AnchorTerms', 'BM25URL', 'entropy', 'LengthURL', 'frac_stop',
+       'InlinkNum', 'LMIRIMURL', 'IDFBody', 'IDFAnchor', 'IDFTitle',
+       'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25Title', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 21: 0.6097
+New feature indexes: [7, 43, 25, 14, 2, 23, 46, 21, 19, 11, 22, 32, 0, 48, 33, 3, 6, 5, 20, 41, 8, 9]
+New feature names: Index(['IDFTitle', 'NumSlashURL', 'LMIRABSBody', 'TFIDFWholeDocument',
+       'TitleTerms', 'BM25URL', 'frac_stop', 'BM25Anchor',
+       'LengthWholeDocument', 'TFIDFAnchor', 'BM25Title', 'LMIRDIRTitle',
+       'BodyTerms', 'entropy', 'LMIRDIRURL', 'URLTerms', 'IDFAnchor',
+       'IDFBody', 'BM25Body', 'InlinkNum', 'IDFURL', 'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'AnchorTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25WholeDocument', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 22: 0.6034
+New feature indexes: [32, 12, 25, 46, 22, 3, 26, 34, 16, 23, 11, 9, 7, 6, 15, 5, 8]
+New feature names: Index(['LMIRDIRTitle', 'TFIDFTitle', 'LMIRABSBody', 'frac_stop', 'BM25Title',
+       'URLTerms', 'LMIRABSAnchor', 'LMIRDIRWholeDocument', 'LengthAnchor',
+       'BM25URL', 'TFIDFAnchor', 'IDFWholeDocument', 'IDFTitle', 'IDFAnchor',
+       'LengthBody', 'IDFBody', 'IDFURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 23: 0.6069
+New feature indexes: [14, 18, 13, 20, 8, 35, 28, 30, 22, 37, 7, 48, 47, 15, 45, 5, 11, 6, 31, 9]
+New feature names: Index(['TFIDFWholeDocument', 'LengthURL', 'TFIDFURL', 'BM25Body', 'IDFURL',
+       'LMIRIMBody', 'LMIRABSURL', 'LMIRDIRBody', 'BM25Title', 'LMIRIMTitle',
+       'IDFTitle', 'entropy', 'cover_stop', 'LengthBody', 'NumChildPages',
+       'IDFBody', 'TFIDFAnchor', 'IDFAnchor', 'LMIRDIRAnchor',
+       'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFTitle', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMAnchor', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 24: 0.5956
+New feature indexes: [8, 5, 30, 29, 19, 39, 27, 41, 20, 32, 26, 10, 33, 6, 42, 7, 9, 1]
+New feature names: Index(['IDFURL', 'IDFBody', 'LMIRDIRBody', 'LMIRABSWholeDocument',
+       'LengthWholeDocument', 'LMIRIMWholeDocument', 'LMIRABSTitle',
+       'InlinkNum', 'BM25Body', 'LMIRDIRTitle', 'LMIRABSAnchor', 'TFIDFBody',
+       'LMIRDIRURL', 'IDFAnchor', 'OutlinkNum', 'IDFTitle', 'IDFWholeDocument',
+       'AnchorTerms'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSURL', 'LMIRDIRAnchor', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'PageRank', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'cover_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 25: 0.6051
+New feature indexes: [43, 14, 40, 33, 47, 7, 19, 38, 35, 6, 29, 9, 37, 5, 48, 8, 44]
+New feature names: Index(['NumSlashURL', 'TFIDFWholeDocument', 'PageRank', 'LMIRDIRURL',
+       'cover_stop', 'IDFTitle', 'LengthWholeDocument', 'LMIRIMURL',
+       'LMIRIMBody', 'IDFAnchor', 'LMIRABSWholeDocument', 'IDFWholeDocument',
+       'LMIRIMTitle', 'IDFBody', 'entropy', 'IDFURL', 'LenURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Body', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMAnchor', 'LMIRIMWholeDocument', 'InlinkNum', 'OutlinkNum', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 26: 0.6074
+New feature indexes: [2, 43, 10, 14, 5, 7, 9, 46, 8, 48, 41, 11, 22, 20, 28, 6]
+New feature names: Index(['TitleTerms', 'NumSlashURL', 'TFIDFBody', 'TFIDFWholeDocument',
+       'IDFBody', 'IDFTitle', 'IDFWholeDocument', 'frac_stop', 'IDFURL',
+       'entropy', 'InlinkNum', 'TFIDFAnchor', 'BM25Title', 'BM25Body',
+       'LMIRABSURL', 'IDFAnchor'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 27: 0.6084
+New feature indexes: [11, 45, 40, 6, 20, 38, 9, 27, 14, 18, 5, 16, 1, 47, 41, 7, 26, 48, 46, 4, 2, 8]
+New feature names: Index(['TFIDFAnchor', 'NumChildPages', 'PageRank', 'IDFAnchor', 'BM25Body',
+       'LMIRIMURL', 'IDFWholeDocument', 'LMIRABSTitle', 'TFIDFWholeDocument',
+       'LengthURL', 'IDFBody', 'LengthAnchor', 'AnchorTerms', 'cover_stop',
+       'InlinkNum', 'IDFTitle', 'LMIRABSAnchor', 'entropy', 'frac_stop',
+       'TermsWholeDocument', 'TitleTerms', 'IDFURL'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'URLTerms', 'TFIDFBody', 'TFIDFTitle', 'TFIDFURL', 'LengthBody', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 28: 0.6097
+New feature indexes: [11, 16, 9, 20, 26, 10, 39, 45, 15, 37, 6, 46, 48, 7, 28, 8, 12, 5]
+New feature names: Index(['TFIDFAnchor', 'LengthAnchor', 'IDFWholeDocument', 'BM25Body',
+       'LMIRABSAnchor', 'TFIDFBody', 'LMIRIMWholeDocument', 'NumChildPages',
+       'LengthBody', 'LMIRIMTitle', 'IDFAnchor', 'frac_stop', 'entropy',
+       'IDFTitle', 'LMIRABSURL', 'IDFURL', 'TFIDFTitle', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthTitle', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 29: 0.611
+New feature indexes: [46, 9, 8, 35, 26, 43, 10, 22, 18, 16, 28, 25, 17, 36, 3, 7, 6, 15, 4, 5, 48, 40]
+New feature names: Index(['frac_stop', 'IDFWholeDocument', 'IDFURL', 'LMIRIMBody',
+       'LMIRABSAnchor', 'NumSlashURL', 'TFIDFBody', 'BM25Title', 'LengthURL',
+       'LengthAnchor', 'LMIRABSURL', 'LMIRABSBody', 'LengthTitle',
+       'LMIRIMAnchor', 'URLTerms', 'IDFTitle', 'IDFAnchor', 'LengthBody',
+       'TermsWholeDocument', 'IDFBody', 'entropy', 'PageRank'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMTitle', 'LMIRIMURL', 'LMIRIMWholeDocument', 'InlinkNum', 'OutlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 30: 0.6065
+New feature indexes: [40, 32, 21, 19, 24, 20, 39, 9, 33, 5, 34, 25, 8, 47, 6, 7, 48]
+New feature names: Index(['PageRank', 'LMIRDIRTitle', 'BM25Anchor', 'LengthWholeDocument',
+       'BM25WholeDocument', 'BM25Body', 'LMIRIMWholeDocument',
+       'IDFWholeDocument', 'LMIRDIRURL', 'IDFBody', 'LMIRDIRWholeDocument',
+       'LMIRABSBody', 'IDFURL', 'cover_stop', 'IDFAnchor', 'IDFTitle',
+       'entropy'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Title', 'BM25URL', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 31: 0.6006
+New feature indexes: [19, 4, 5, 24, 8, 39, 13, 9, 46, 30, 21, 7, 6]
+New feature names: Index(['LengthWholeDocument', 'TermsWholeDocument', 'IDFBody',
+       'BM25WholeDocument', 'IDFURL', 'LMIRIMWholeDocument', 'TFIDFURL',
+       'IDFWholeDocument', 'frac_stop', 'LMIRDIRBody', 'BM25Anchor',
+       'IDFTitle', 'IDFAnchor'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthTitle', 'LengthURL', 'BM25Body', 'BM25Title', 'BM25URL', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 32: 0.6055
+New feature indexes: [48, 36, 34, 47, 8, 12, 29, 39, 27, 15, 30, 6, 32, 20, 17, 9, 7, 5]
+New feature names: Index(['entropy', 'LMIRIMAnchor', 'LMIRDIRWholeDocument', 'cover_stop',
+       'IDFURL', 'TFIDFTitle', 'LMIRABSWholeDocument', 'LMIRIMWholeDocument',
+       'LMIRABSTitle', 'LengthBody', 'LMIRDIRBody', 'IDFAnchor',
+       'LMIRDIRTitle', 'BM25Body', 'LengthTitle', 'IDFWholeDocument',
+       'IDFTitle', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthURL', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSURL', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRIMBody', 'LMIRIMTitle', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 33: 0.6077
+New feature indexes: [5, 15, 37, 39, 36, 17, 4, 23, 21, 25, 47, 27, 42, 43, 8, 48, 30, 6, 10, 9, 7]
+New feature names: Index(['IDFBody', 'LengthBody', 'LMIRIMTitle', 'LMIRIMWholeDocument',
+       'LMIRIMAnchor', 'LengthTitle', 'TermsWholeDocument', 'BM25URL',
+       'BM25Anchor', 'LMIRABSBody', 'cover_stop', 'LMIRABSTitle', 'OutlinkNum',
+       'NumSlashURL', 'IDFURL', 'entropy', 'LMIRDIRBody', 'IDFAnchor',
+       'TFIDFBody', 'IDFWholeDocument', 'IDFTitle'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthURL', 'LengthWholeDocument', 'BM25Body', 'BM25Title', 'BM25WholeDocument', 'LMIRABSAnchor', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'InlinkNum', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 34: 0.6063
+New feature indexes: [24, 17, 1, 7, 0, 6, 9, 40, 46, 38, 16, 48, 23, 8, 19, 5]
+New feature names: Index(['BM25WholeDocument', 'LengthTitle', 'AnchorTerms', 'IDFTitle',
+       'BodyTerms', 'IDFAnchor', 'IDFWholeDocument', 'PageRank', 'frac_stop',
+       'LMIRIMURL', 'LengthAnchor', 'entropy', 'BM25URL', 'IDFURL',
+       'LengthWholeDocument', 'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'TitleTerms', 'URLTerms', 'TermsWholeDocument', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthURL', 'BM25Body', 'BM25Anchor', 'BM25Title', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'cover_stop']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 35: 0.6045
+New feature indexes: [29, 26, 23, 38, 47, 20, 4, 17, 18, 22, 35, 6, 5, 7, 32, 8, 9]
+New feature names: Index(['LMIRABSWholeDocument', 'LMIRABSAnchor', 'BM25URL', 'LMIRIMURL',
+       'cover_stop', 'BM25Body', 'TermsWholeDocument', 'LengthTitle',
+       'LengthURL', 'BM25Title', 'LMIRIMBody', 'IDFAnchor', 'IDFBody',
+       'IDFTitle', 'LMIRDIRTitle', 'IDFURL', 'IDFWholeDocument'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthBody', 'LengthAnchor', 'LengthWholeDocument', 'BM25Anchor', 'BM25WholeDocument', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'entropy']
+---------------------------------------------
+
+---------------------------------------------
+MAX SCORE FOR ITERATION 36: 0.6065
+New feature indexes: [28, 11, 18, 47, 16, 8, 17, 7, 10, 38, 15, 24, 21, 13, 4, 1, 6, 9, 5]
+New feature names: Index(['LMIRABSURL', 'TFIDFAnchor', 'LengthURL', 'cover_stop', 'LengthAnchor',
+       'IDFURL', 'LengthTitle', 'IDFTitle', 'TFIDFBody', 'LMIRIMURL',
+       'LengthBody', 'BM25WholeDocument', 'BM25Anchor', 'TFIDFURL',
+       'TermsWholeDocument', 'AnchorTerms', 'IDFAnchor', 'IDFWholeDocument',
+       'IDFBody'],
+      dtype='object')
+Removed feature names (dropped_labels): ['QueryID', 'BodyTerms', 'TitleTerms', 'URLTerms', 'TFIDFTitle', 'TFIDFWholeDocument', 'LengthWholeDocument', 'BM25Body', 'BM25Title', 'BM25URL', 'LMIRABSBody', 'LMIRABSAnchor', 'LMIRABSTitle', 'LMIRABSWholeDocument', 'LMIRDIRBody', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMAnchor', 'LMIRIMTitle', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label', 'frac_stop', 'entropy']
+---------------------------------------------
+

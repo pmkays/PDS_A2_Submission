@@ -1,9 +1,10 @@
 from utilities import get_combined_dataset_testset
 from utilities import calculate_ndcg
 from utilities import export_runfile
+import A2
+
 from bs4 import BeautifulSoup
 from bs4.element import Comment
-from A2 import predict_model
 from tqdm import trange, tqdm
 from sklearn.utils import shuffle
 from sklearn.model_selection import GroupShuffleSplit
@@ -55,7 +56,7 @@ def feature_selection(seed, model, dropped_labels, col_num):
 
         #train and predict the model
         model.fit(X_train, y_train, group=groups, verbose=False, eval_set=[(X_test, y_test)], eval_group=[groups_test], early_stopping_rounds=100)
-        queryIDs, docIDs, predictions = predict_model(model, X_train_labelled, dropped_labels)
+        queryIDs, docIDs, predictions = A2.predict_model(model, X_train_labelled, dropped_labels)
         export_runfile(queryIDs, docIDs, predictions, 'hillclimb.csv')
 
         #determine if the score is higher with the new feature or if it's lower
@@ -69,6 +70,7 @@ def feature_selection(seed, model, dropped_labels, col_num):
     return  max_score, new_indexes, new_features
 
 def get_features():
+  print("Performing feature selection...Check hillclimb.txt")
   f = open("hillclimb.txt","a")
   col_num=combined_dataset.shape[1]-3 #no queryid, docid, and label
   #when k = 5, through hyperopt and shane's scorer
@@ -89,7 +91,7 @@ def get_features():
   print("write complete")
   f.close()
 
-get_features()
+# get_features()
 
   # labels_keep = ['LMIRABSWholeDocument', 'TermsWholeDocument', 'LMIRABSAnchor',
   #       'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRIMTitle', 'IDFTitle', 'entropy',
@@ -125,8 +127,6 @@ def calculate_entropy(arr):
     #calculate Entropy
     H = -sum([pk  * math.log(pk) / math.log(2) for pk in pkvec ])
     return H
-
-# print(calculate_entropy((['s','h','a','n','n','o','n'])))
 
 
 # https://stackoverflow.com/a/1983219
@@ -172,10 +172,11 @@ def calculate_fracstop_coverstop(stoplist, html_arr):
     return frac_stop, cover_stop
 
 
-def apply_export():
+def feature_engineering():
   f = open("stoplist_nltk.txt","r")
   stoplist= list(f.read().split("\n"))
 
+  print("Opening documents.tsv... this may take a while...")
   names=["Docid","Withhtml","Withouthtml"]
   df = pd.read_csv("documents.tsv", header=None, names=names, sep='\t')
   combined_df= testset.merge(df, on="Docid", how="left")
