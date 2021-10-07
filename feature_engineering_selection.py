@@ -12,10 +12,9 @@ from xgboost.sklearn import XGBRanker
 import pandas as pd
 import numpy as np
 import math
+from collections import Counter
 
 dataset, testset, combined_dataset, combined_testset = get_combined_dataset_testset()
-# print(combined_dataset.head(20))
-# print(combined_testset.head(20))
 
 
 def get_x_y_hillclimb():
@@ -73,10 +72,12 @@ def get_features():
   print("Performing feature selection...Check hillclimb.txt")
   f = open("hillclimb.txt","a")
   col_num=combined_dataset.shape[1]-3 #no queryid, docid, and label
-  #when k = 5, through hyperopt and shane's scorer
+
   params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10
   model = XGBRanker(**params)
   dropped_labels= ['QueryID', 'Label', 'Docid']
+  
+  #try multiple times and use the iteration number as the seed so that this is reproducable
   for seed in trange(25, desc='1st loop'): 
       max_score, new_indexes, new_features = feature_selection(seed, model, dropped_labels, col_num)
       removed_features= [column for column in combined_dataset.columns if column not in new_features]
@@ -90,17 +91,6 @@ def get_features():
 
   print("write complete")
   f.close()
-
-# get_features()
-
-  # labels_keep = ['LMIRABSWholeDocument', 'TermsWholeDocument', 'LMIRABSAnchor',
-  #       'LMIRDIRBody', 'LMIRDIRTitle', 'LMIRIMTitle', 'IDFTitle', 'entropy',
-  #       'frac_stop', 'LengthURL', 'LengthBody', 'LMIRABSURL', 'BM25Body',
-  #       'OutlinkNum', 'IDFURL', 'LMIRABSBody', 'IDFBody', 'IDFAnchor',
-  #       'LMIRIMAnchor', 'IDFWholeDocument', 'BodyTerms', 'cover_stop']
-
-  # dropped_labels = [var for var in dataset if var not in labels_keep]
-  # print(dropped_labels)
 
 
 
@@ -118,7 +108,8 @@ def to_dictionary(words):
 #https://stackoverflow.com/questions/43419803/information-theoretic-measure-entropy-calculation
 def calculate_entropy(arr):
     #convert the array to a series so we can use methods
-    words = to_dictionary(arr)
+    # words = to_dictionary(arr)
+    words = Counter(arr)
     total = sum(words.values()) 
     
     #calculate frequencies of each word after getting the counts for each unique word
@@ -150,40 +141,56 @@ def text_from_html(body):
     cleaned_no_empty= list(filter(lambda a: a != '', arr))
     return cleaned_no_empty
 
-
+#obtained from paper linked in week 9
 def calculate_fracstop_coverstop(stoplist, html_arr):
     stopword_list_doc=[]
     stopword_count = 0
-    nonstopword_count = 0
+    # nonstopword_count = 0
     for word in html_arr:
         if word in stoplist:
             stopword_count+=1
             stopword_list_doc.append(word)
-        else:
-            nonstopword_count+=1
+        # else:
+        #     nonstopword_count+=1
 
-    if nonstopword_count == 0:
-        frac_stop = 0
-    else:      
-        frac_stop = stopword_count/nonstopword_count 
+    nonstopword_count = len(html_arr)-stopword_count
+    frac_stop = 0 if nonstopword_count == 0 else stopword_count/nonstopword_count 
+    # if nonstopword_count == 0:
+    #     frac_stop = 0
+    # else:      
+    #     frac_stop = stopword_count/nonstopword_count 
 
     unique_stopword_list_doc= set(stopword_list_doc)
     cover_stop = len(unique_stopword_list_doc)/len(stoplist)
     return frac_stop, cover_stop
 
 
-def feature_engineering():
+def get_stoplist():
   f = open("stoplist_nltk.txt","r")
   stoplist= list(f.read().split("\n"))
+  return stoplist
 
+# print(calculate_fracstop_coverstop(get_stoplist(), ['the','quick','brown','fox','jumps','over','the','lazy','dog']))
+
+def get_combined_df():
   print("Opening documents.tsv... this may take a while...")
   names=["Docid","Withhtml","Withouthtml"]
   df = pd.read_csv("documents.tsv", header=None, names=names, sep='\t')
   combined_df= testset.merge(df, on="Docid", how="left")
+  return combined_df
 
-  frac_stops = []
-  cover_stops=[]
-  entropies = []
+def export_feature_engineering(combined_df):
+  to_export = combined_df.loc[:, ~combined_df.columns.isin(['Withhtml', 'Withouthtml'])]
+  to_export.to_csv("paula.tsv", sep='\t', header=True, index=False)
+  feature_engineered_columns = to_export.loc[:, to_export.columns.isin(['Docid', 'frac_stop','cover_stop','entropy'])]
+  feature_engineered_columns.to_csv("paula2", sep='\t', header=True, index=False)
+
+
+def feature_engineering():
+  stoplist = get_stoplist()
+  combined_df = get_combined_df() 
+
+  frac_stops, cover_stops, entropies = [],[],[]
   for index, row in tqdm(combined_df.iterrows(), total=combined_df.shape[0]):
       cleaned_no_empty = text_from_html(row["Withhtml"])
       frac_stop, cover_stop = calculate_fracstop_coverstop(stoplist, cleaned_no_empty)
@@ -192,12 +199,13 @@ def feature_engineering():
       frac_stops.append(frac_stop)
       cover_stops.append(cover_stop)
       entropies.append(entropy)
+  combined_df['frac_stop'], combined_df['cover_stop'], combined_df['entropy'] = [frac_stops, cover_stops, entropies]
 
-  combined_df['frac_stop'] = frac_stops
-  combined_df['cover_stop'] = cover_stops
-  combined_df['entropy'] = entropies
+  # combined_df['frac_stop'] = frac_stops
+  # combined_df['cover_stop'] = cover_stops
+  # combined_df['entropy'] = entropies
 
-  to_export = combined_df.loc[:, ~combined_df.columns.isin(['Withhtml', 'Withouthtml'])]
-  to_export.to_csv("paula.tsv", sep='\t', header=True, index=False)
-  feature_engineered_columns = to_export.loc[:, to_export.columns.isin(['Docid', 'frac_stop','cover_stop','entropy'])]
-  feature_engineered_columns.to_csv("paula2", sep='\t', header=True, index=False)
+  export_feature_engineering(combined_df)
+
+  
+feature_engineering()

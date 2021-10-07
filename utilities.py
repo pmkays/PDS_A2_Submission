@@ -3,6 +3,7 @@ import subprocess
 import platform
 import os,sys
 
+#copied from week 8 lectorial code
 def strip_header(the_file):
   with open(the_file, 'r') as f:
     for line in f:
@@ -34,8 +35,6 @@ def get_combined_dataset_testset():
   return dataset, testset, combined_dataset, combined_testset
 
 dataset, testset,combined_dataset, combined_testset = get_combined_dataset_testset()
-# print(dataset.head(20))
-# print(combined_dataset.head(20))
 
 def export_runfile(queryIDs, docIDs, predictions, filename):
     runfile = pd.DataFrame({'QueryID': list(queryIDs), 'Docid': list(docIDs), 'Score': list(predictions)}, 
@@ -43,7 +42,7 @@ def export_runfile(queryIDs, docIDs, predictions, filename):
     runfile2 = runfile.groupby(["QueryID"]).apply(lambda x: x.sort_values(["Score"], ascending = False)).reset_index(drop=True)
     runfile2.to_csv(filename, sep='\t', header=False, index=False)
 
-
+#copied from lectorial 8 code with slight changes
 def get_ndcg_score(txt):
   for ln in txt.split('\n'):
     ln = ln.strip()

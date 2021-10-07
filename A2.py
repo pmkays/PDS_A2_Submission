@@ -15,9 +15,7 @@ dataset, testset,combined_dataset, combined_testset = get_combined_dataset_tests
 
 def predict_model(model, X_test_raw, dropped_labels):    
   #these will be used for later exporting
-  predictions = []
-  queryIDs = []
-  docIDs = [] 
+  predictions = queryIDs =  docIDs = [], [], []
 
   for name, group in X_test_raw.groupby('QueryID'):
       queryIDs = np.append(queryIDs, group['QueryID'])
@@ -26,7 +24,7 @@ def predict_model(model, X_test_raw, dropped_labels):
       #predictions must happen by group
       droppedGroup = group.drop(dropped_labels,axis=1)
       groupPredictions = model.predict(droppedGroup)
-      predictions= np.append(predictions, groupPredictions);
+      predictions= np.append(predictions, groupPredictions)
           
   return queryIDs, docIDs,predictions 
 
@@ -45,7 +43,6 @@ def train_model(dropped_labels):
 
 def train_test_model():
   dropped_labels=['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'cover_stop', 'Label']
-  # dropped_labels= ['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
   model = train_model(dropped_labels)
   queryIDs, docIDs, predictions = predict_model(model, combined_testset, dropped_labels[:-1])
   export_runfile(queryIDs, docIDs, predictions, 'A2.run')

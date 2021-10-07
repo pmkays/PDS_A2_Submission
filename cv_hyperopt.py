@@ -26,7 +26,6 @@ def get_x_y_cv(train_index, test_index, X, y, dropped_labels):
     
     return X_train_raw, X_train, y_train, X_test_raw, X_test, y_test, groups, groups_test
 
-
 def perform_cv(model, dropped_labels):
     X = combined_dataset
     y = combined_dataset['Label']
@@ -52,15 +51,11 @@ def perform_cv(model, dropped_labels):
     return sum(scores)/len(scores)
 
 def cv():
-  # dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label'] #s3782041-1.tsv
-  # params ={'gamma': 4.3331098918759485, 'learning_rate': 0.2913689488086962, 'max_depth': 2, 'min_child_weight': 6, 'n_estimators': 376} #s3782041-1.tsv
   dropped_labels= ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'cover_stop', 'Label'] #s3782041-2.tsv
   params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10, #s3782041-2
   model = XGBRanker(**params)
   average_ndcg = perform_cv(model, dropped_labels)
   print ("AVERAGE SCORE:", average_ndcg)
-
-# cv()
 
 
 
@@ -76,8 +71,6 @@ def objective(space):
                     min_child_weight=int(space['min_child_weight']), learning_rate = space['learning_rate']) 
     
     dropped_labels= ['QueryID', 'BodyTerms', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFURL', 'LengthTitle', 'LengthWholeDocument', 'BM25Body', 'BM25Anchor', 'BM25URL', 'LMIRABSBody', 'LMIRABSTitle', 'LMIRABSURL', 'LMIRABSWholeDocument', 'LMIRDIRAnchor', 'LMIRDIRTitle', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'PageRank', 'OutlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'cover_stop', 'Label']
-
-    # dropped_labels=['QueryID', 'AnchorTerms', 'TitleTerms', 'URLTerms', 'TFIDFBody', 'TFIDFAnchor', 'TFIDFTitle', 'TFIDFURL', 'TFIDFWholeDocument', 'LengthAnchor', 'LengthTitle', 'LengthWholeDocument', 'BM25Anchor', 'BM25Title', 'BM25URL', 'BM25WholeDocument', 'LMIRABSTitle', 'LMIRDIRAnchor', 'LMIRDIRURL', 'LMIRDIRWholeDocument', 'LMIRIMBody', 'LMIRIMURL', 'LMIRIMWholeDocument', 'PageRank', 'InlinkNum', 'NumSlashURL', 'LenURL', 'NumChildPages', 'Docid', 'Label']
     average_ndcg = perform_cv(model, dropped_labels)
     
     print ("SCORE:", average_ndcg)
@@ -86,14 +79,8 @@ def objective(space):
 def hyperparameter_tuning():
   trials = Trials()
 
-  best_hyperparams = fmin(fn = objective,
-                          space = space,
-                          algo = tpe.suggest,
-                          max_evals = 100,
-                          trials = trials)
+  best_hyperparams = fmin(fn = objective, space = space, algo = tpe.suggest, max_evals = 100, trials = trials)
 
   print("The best hyperparameters are : ","\n")
   print(best_hyperparams)
   return best_hyperparams
-
-# print(hyperparameter_tuning())
