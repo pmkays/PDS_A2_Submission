@@ -2,7 +2,6 @@ from utilities import get_combined_dataset_testset
 from utilities import calculate_ndcg
 from utilities import export_runfile
 import A2
-
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 from tqdm import trange, tqdm
@@ -16,27 +15,38 @@ from collections import Counter
 
 dataset, testset, combined_dataset, combined_testset = get_combined_dataset_testset()
 
-
-def get_x_y_hillclimb():
-    X = combined_dataset
-    y = combined_dataset['Label']
-    gss = GroupShuffleSplit(test_size=.40, n_splits=1, random_state = 27).split(X, groups=X['QueryID'])
-
+#https://medium.com/predictly-on-tech/learning-to-rank-using-xgboost-83de0166229d
+def get_train_test_indicies_hillclimb(data): 
+    gss = GroupShuffleSplit(test_size=.40, n_splits=1, random_state = 27).split(combined_dataset, groups=combined_dataset['QueryID'])
     X_train_inds, X_test_inds = next(gss)
+    
+    if data == "train":
+        return X_train_inds
+    else:
+       return X_test_inds 
+     
 
-    train_data= X.iloc[X_train_inds]
+def get_train_data_hillclimb(): 
+    X_train_inds = get_train_test_indicies_hillclimb("train")
+    train_data= combined_dataset.iloc[X_train_inds]
+
     X_train = train_data.loc[:, ~train_data.columns.isin(['Docid', 'Label', 'QueryID'])]
     y_train = train_data.loc[:, train_data.columns.isin(['Label'])]
     groups = train_data.groupby('QueryID').size().to_frame('size')['size'].to_numpy()
 
-    test_data= X.iloc[X_test_inds]
-    groups_test = test_data.groupby('QueryID').size().to_frame('size')['size'].to_numpy()
+    return train_data, X_train, y_train, groups
 
-    #We need to keep the id for later predictions
+
+def get_test_data_hillclimb(): 
+    X_test_inds = get_train_test_indicies_hillclimb("test")
+    test_data= combined_dataset.iloc[X_test_inds]
+
     X_test = test_data.loc[:, ~test_data.columns.isin(['Docid', 'Label', 'QueryID'])]
     y_test = test_data.loc[:, test_data.columns.isin(['Label'])]
-    
-    return train_data, X_train, y_train, X_test, y_test, groups, groups_test
+    groups_test = test_data.groupby('QueryID').size().to_frame('size')['size'].to_numpy()
+
+    return test_data, X_test, y_test, groups_test
+
 
 def feature_selection(seed, model, dropped_labels, col_num):
     max_score = 0.0
@@ -48,7 +58,10 @@ def feature_selection(seed, model, dropped_labels, col_num):
         new_indexes.append(randomIndexes[current_feature])    
 
         #prepare the data based on the new indexes
-        train_data,X_train, y_train, X_test, y_test, groups, groups_test = get_x_y_hillclimb() 
+        train_data, X_train, y_train, groups = get_train_data_hillclimb() 
+        test_data, X_test, y_test, groups_test = get_test_data_hillclimb()
+
+        #extract what's relevant depending on the new indexes and ensure we have a fully labelled dataset for predictions and grouping
         X_train=X_train.iloc[:,new_indexes]  
         X_train_labelled = X_train.join(train_data.loc[:, train_data.columns.isin(dropped_labels)])
         X_test = X_test.iloc[:,new_indexes]
@@ -68,12 +81,13 @@ def feature_selection(seed, model, dropped_labels, col_num):
 
     return  max_score, new_indexes, new_features
 
+
 def get_features():
-  print("Performing feature selection...Check hillclimb.txt")
-  f = open("hillclimb.txt","a")
+  print("Performing feature selection...Check hillclimb-new.txt")
+  f = open("hillclimb-new.txt","a")
   col_num=combined_dataset.shape[1]-3 #no queryid, docid, and label
 
-  params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10
+  params={'gamma': 3.62625949981358, 'learning_rate': 0.2691854123225587, 'max_depth': 3, 'min_child_weight': 6, 'n_estimators': 109} #hyperopt ran on 06/10, s3782041-2/3.tsv
   model = XGBRanker(**params)
   dropped_labels= ['QueryID', 'Label', 'Docid']
   
@@ -96,26 +110,17 @@ def get_features():
 
 
 
-def to_dictionary(words):
-    counts = dict()
-    for word in words:
-        if word in counts:
-            counts[word] += 1
-        else:
-            counts[word] = 1
-    return counts
+
 
 #https://stackoverflow.com/questions/43419803/information-theoretic-measure-entropy-calculation
 def calculate_entropy(arr):
-    #convert the array to a series so we can use methods
-    # words = to_dictionary(arr)
     words = Counter(arr)
     total = sum(words.values()) 
     
     #calculate frequencies of each word after getting the counts for each unique word
     pkvec = [value/total for key, value in words.items()]
     
-    #calculate Entropy
+    #calculate entropy
     H = -sum([pk  * math.log(pk) / math.log(2) for pk in pkvec ])
     return H
 
@@ -127,6 +132,7 @@ def tag_visible(element):
     if isinstance(element, Comment):
         return False
     return True
+
 
 #cleans the text from the html column, makes a list of words
 def text_from_html(body):
@@ -141,27 +147,23 @@ def text_from_html(body):
     cleaned_no_empty= list(filter(lambda a: a != '', arr))
     return cleaned_no_empty
 
+
 #obtained from paper linked in week 9
 def calculate_fracstop_coverstop(stoplist, html_arr):
     stopword_list_doc=[]
     stopword_count = 0
-    # nonstopword_count = 0
+
     for word in html_arr:
         if word in stoplist:
             stopword_count+=1
             stopword_list_doc.append(word)
-        # else:
-        #     nonstopword_count+=1
 
     nonstopword_count = len(html_arr)-stopword_count
     frac_stop = 0 if nonstopword_count == 0 else stopword_count/nonstopword_count 
-    # if nonstopword_count == 0:
-    #     frac_stop = 0
-    # else:      
-    #     frac_stop = stopword_count/nonstopword_count 
 
     unique_stopword_list_doc= set(stopword_list_doc)
     cover_stop = len(unique_stopword_list_doc)/len(stoplist)
+
     return frac_stop, cover_stop
 
 
@@ -170,28 +172,30 @@ def get_stoplist():
   stoplist= list(f.read().split("\n"))
   return stoplist
 
-# print(calculate_fracstop_coverstop(get_stoplist(), ['the','quick','brown','fox','jumps','over','the','lazy','dog']))
 
-def get_combined_df():
+def get_df_fe():
   print("Opening documents.tsv... this may take a while...")
   names=["Docid","Withhtml","Withouthtml"]
   df = pd.read_csv("documents.tsv", header=None, names=names, sep='\t')
-  combined_df= testset.merge(df, on="Docid", how="left")
-  return combined_df
+  df_fe= testset.merge(df, on="Docid", how="left")
+  return df_fe
 
-def export_feature_engineering(combined_df):
-  to_export = combined_df.loc[:, ~combined_df.columns.isin(['Withhtml', 'Withouthtml'])]
-  to_export.to_csv("paula.tsv", sep='\t', header=True, index=False)
+
+def export_feature_engineering(df_fe):
+  #export the train.tsv/test.tsv with the new columns added in 
+  to_export = df_fe.loc[:, ~df_fe.columns.isin(['Withhtml', 'Withouthtml'])]
+  to_export.to_csv("fe_complete.tsv", sep='\t', header=True, index=False)
+  #export only the new columns which can be appended when reading in train.tsv and test.tsv
   feature_engineered_columns = to_export.loc[:, to_export.columns.isin(['Docid', 'frac_stop','cover_stop','entropy'])]
-  feature_engineered_columns.to_csv("paula2", sep='\t', header=True, index=False)
-
+  feature_engineered_columns.to_csv("fe_cols.tsv", sep='\t', header=True, index=False)
 
 def feature_engineering():
   stoplist = get_stoplist()
-  combined_df = get_combined_df() 
+  df_fe = get_df_fe() 
 
+  #calculate frac_stop, cover_stop, entropy for each row
   frac_stops, cover_stops, entropies = [],[],[]
-  for index, row in tqdm(combined_df.iterrows(), total=combined_df.shape[0]):
+  for index, row in tqdm(df_fe.iterrows(), total=df_fe.shape[0]):
       cleaned_no_empty = text_from_html(row["Withhtml"])
       frac_stop, cover_stop = calculate_fracstop_coverstop(stoplist, cleaned_no_empty)
       entropy = calculate_entropy(cleaned_no_empty)
@@ -199,13 +203,8 @@ def feature_engineering():
       frac_stops.append(frac_stop)
       cover_stops.append(cover_stop)
       entropies.append(entropy)
-  combined_df['frac_stop'], combined_df['cover_stop'], combined_df['entropy'] = [frac_stops, cover_stops, entropies]
 
-  # combined_df['frac_stop'] = frac_stops
-  # combined_df['cover_stop'] = cover_stops
-  # combined_df['entropy'] = entropies
-
-  export_feature_engineering(combined_df)
-
+  #append to the dataframe for exporting
+  df_fe['frac_stop'], df_fe['cover_stop'], df_fe['entropy'] = [frac_stops, cover_stops, entropies]
   
-feature_engineering()
+  export_feature_engineering(df_fe)

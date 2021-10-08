@@ -42,7 +42,7 @@ def export_runfile(queryIDs, docIDs, predictions, filename):
     runfile2 = runfile.groupby(["QueryID"]).apply(lambda x: x.sort_values(["Score"], ascending = False)).reset_index(drop=True)
     runfile2.to_csv(filename, sep='\t', header=False, index=False)
 
-#copied from lectorial 8 code with slight changes
+#copied from lectorial 8 code with slight change
 def get_ndcg_score(txt):
   for ln in txt.split('\n'):
     ln = ln.strip()
