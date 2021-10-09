@@ -4,18 +4,18 @@ A2.run: tab delimited, 3 columns of queryid, docid and label. Used to score the 
 A2.pdf: report.
 
 A2.py: train the model and predict using the train.tsv, test.tsv, train_feature_engineering_nltk.tsv, and test_feature_engineering_nltk.tsv files.
-utilities.py: contains trec_evaluator ndcg scorer and an exporting function.
+utilities.py: contains trec_eval ndcg scorer, file reader, and an export runfile function.
 feature_engineering_selection.py: contains feature engineering (frac_stop, cover_stop, entropy) and feature selection through hillclimbing as obtained from tutorial 6 (week 7). 
-cv.hyperopt.py: contains a group k-folds cross validation and hyperparameter tuning through hyperopt. This hyperopt implementation automatically uses cross validation.
+cv_hyperopt.py: contains group k-folds cross validation and hyperparameter tuning through hyperopt. This hyperopt implementation automatically uses cross validation.
 
-stoplist_nltk.txt: a list of stop words as obtained through the nltk study. 
+stoplist_nltk.txt: a list of stop words as obtained through the NLTK study. 
 requirements.txt: freezed requirements for reproducability.
 hillclimb.txt: an example of output for feature selection.
 
-test_feature_engineering_nltk.tsv: frac_stop, cover_stop and entropy calculations for train.tsv. This will be combined with train.tsv when reading in the data automatically.
-train_feature_engineering_nltk.tsv: frac_stop, cover_stop and entropy calculations for test.tsv. This will be combined with test.tsv when reading in the data automatically.
+train_feature_engineering_nltk.tsv: frac_stop, cover_stop and entropy calculations for train.tsv. This will be combined with train.tsv when reading in the data automatically.
+test_feature_engineering_nltk.tsv: frac_stop, cover_stop and entropy calculations for test.tsv. This will be combined with test.tsv when reading in the data automatically.
 
-/week8: has all the trec_evaluator code needed to make the scorer work
+/week8: has all the trec_eval code needed to make the scorer work.
 
 
 RUNNING THE PROGRAM
